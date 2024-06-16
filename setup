@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Script to be a true nomad. Custom version of mischavandenburg's dotfiles.
+# run this after cloning the repo to feel at home quickly :)
+
+# create directories
+
+export XDG_CONFIG_HOME="$HOME"/.config
+mkdir -p "$XDG_CONFIG_HOME"/bash
+mkdir -p "$XDG_CONFIG_HOME"/k9s
+
+# Symbolic links
+
+ln -sf "$PWD/k9s/skin.yml" "$XDG_CONFIG_HOME"/k9s/skin.yml
+ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
+ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
+ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
+ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
+ln -sf "$PWD/newsboat/config" "$HOME"/.newsboat/config
+ln -sf "$PWD/newsboat/urls" "$HOME"/.newsboat/urls
+
+# Maggot lair obsidian
+
+export MAGGOT_LAIR=("/home/horse/repos/github.com/horsekey/maggot-lair/")
+ln -sf "$MAGGOT_LAIR" ~/garden
+
+# Fonts
+
+mkdir -p $HOME/.local/share/fonts
+cp $PWD/fonts/UbuntuMono* $HOME/.local/share/fonts
+
+# Additional packages convert to ubuntu
+
+# brew packages Mac
+# amethyst fzf nvim exa hugo bash-completion@2 newsboat kubectl starship
+# brew install --cask alacritty
+
+# ubuntu packages apt
+# sudo apt install ripgrep gh
+
+# ubuntu apt neovim setup
+# sudo apt install gcc g++ unzip
+
+# ubuntu brew for vim and neovim setup
+# sudo apt install fd fzf kubectl kubectx derailed/k9s/k9s starship
+
+# ubuntu brew for neovim setup
+# brew install neovim go lazygit
+
+# ubuntu specific notes
+# create symbolic link to neovim from vim when not using neovim on
+# Ubuntu systems, because I use the v alias everywhere.
+# sudo ln -sf /usr/bin/vim /usr/bin/nvim
