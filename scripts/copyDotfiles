@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# copy .config/nvim over to $DOTFILES
+cp -R "$PWD/.config/nvim/" "$DOTFILES"
+
+# copy .newsboat over to $DOTFILES
+cp "$PWD/.newsboat/urls" "$DOTFILES/newsboat"
+cp "$PWD/.newsboat/config" "$DOTFILES/newsboat"
+
+# Copy bash files over to $DOTFILES repos
+cp "$PWD/.bashrc" "$DOTFILES/"
+cp "$PWD/.bash_aliases" "$DOTFILES/"
+cp "$PWD/.inputrc" "$DOTFILES/"
+
+# Copy tmux files over to $DOTFILES repo
+cp "$PWD/.tmux.conf" "$DOTFILES/"
+
+# Copy scripts over to $DOTFILES repo
+cp -r "$PWD/scripts/" "$DOTFILES"
+
+# Simple completion line
+echo "Finished copying dotfiles ><>"
