@@ -29,6 +29,14 @@ ln -sf "$MAGGOT_LAIR" ~/maggot-lair
 mkdir -p $HOME/.local/share/fonts
 cp $PWD/fonts/UbuntuMono* $HOME/.local/share/fonts
 
+# Check if using WSL then copy settings.json to proper path
+
+unamestr=$(/usr/bin/uname -a)
+if [[ "$unamestr" == *"WSL"* ]]; then
+	read -p "[WSL] -- Enter windows username: " userName
+	cp "$PWD/windows-terminal/settings.json" "/mnt/c/Users/$userName/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+fi
+
 # Additional packages convert to ubuntu
 
 # ubuntu packages apt
