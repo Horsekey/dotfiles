@@ -29,6 +29,7 @@ export GITUSER="horsekey"
 export DOTFILES="$REPOS/dotfiles"
 export ICLOUD="$HOME/icloud"
 export CONFIG="$HOME/.config"
+export SCRIPTS="$HOME/scripts" # change to dotfiles
 
 # ~~~~~~~~~~~~~~~ History ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -39,6 +40,10 @@ export HISTCONTROL=ignorespace
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# ~~~~~~~~~~~~~~~ Path configuration ~~~~~~~~~~~~~~~~~~~~~~~~
+
+PATH="${PATH:+${PATH}:}"$SCRIPTS":"$HOME"" # appending
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
@@ -99,6 +104,10 @@ if [ -x /usr/bin/dircolors ]; then
 	alias fgrep='fgrep --color=auto'
 	alias egrep='egrep --color=auto'
 fi
+
+# Change Other Writeable symlinked dir colors
+LS_COLORS=$LS_COLORS:'ow=107;35:'
+export LS_COLORS
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
