@@ -12,9 +12,6 @@ esac
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Set to superior editing mode
-set -o vi
-
 # ~~~~~~~~~~~~~~~ Environment Variables ~~~~~~~~~~~~~~~~~~~~~~~~
 
 export VISUAL=nvim
@@ -30,6 +27,7 @@ export DOTFILES="$REPOS/dotfiles"
 export ICLOUD="$HOME/icloud"
 export CONFIG="$HOME/.config"
 export SCRIPTS="$HOME/scripts" # change to dotfiles
+export SECOND_BRAIN="$HOME/maggot-lair"
 
 # ~~~~~~~~~~~~~~~ History ~~~~~~~~~~~~~~~~~~~~~~~~
 
