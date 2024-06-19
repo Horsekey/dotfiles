@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+today=$(date +"%Y-%m-%d")
+file="$SECOND_BRAIN"'/workouts/workout-'"$today".md
+
+cd "$SECOND_BRAIN" || exit
+
+new_workout() {
+	touch "$file"
+
+	cat <<EOF >"$file"
+
+# Workout
+
+# $today
+
+# Sets
+
+1. blah
+2. blah
+3. blah
+4. blah
+5. blah
+6. blah
+
+
+EOF
+}
+
+if [ ! -f "$file" ]; then
+	echo "File does not exist, creating new workout."
+	new_workout
+fi
+
+nvim "$file"

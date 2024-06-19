@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+today=$(date +"%Y-%m-%d")
+tomorrow=$(date -d "tomorrow" +"%Y-%m-%d")
+yesterday=$(date -d "yesterday" +"%Y-%m-%d")
+file="$SECOND_BRAIN/periodic-notes/daily-notes/$today.md"
+workout="workout-$today"
+
+cd "$SECOND_BRAIN" || exit
+
+new_note() {
+	touch "$file"
+
+	cat <<EOF >"$file"
+# $today
+
+[[$yesterday]] - [[$tomorrow]]
+
+# Habits
+
+- [ ] Code
+- [ ] Study
+- [ ] [[$workout]]
+
+## Log
+EOF
+
+}
+
+if [ ! -f "$file" ]; then
+	echo "File does not exist, creating new daily note."
+	new_note
+fi
+
+nvim "$file"
