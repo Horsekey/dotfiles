@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+header=""
+date=$(date +"%Y-%m-%d")
+
+if [[ $# -gt 0 ]]; then
+  
+  if [[ $# -eq 1 || "$1" != "h" ]]; then
+    echo "Usage: gendate h 2 to generate with markdown header ##"
+    exit 1
+  fi
+
+  if [[ $# -eq 2 ]]; then
+    for i in $(seq 1 $2); do
+      header+="#"
+    done
+    header+=" "$date
+    echo "$header"
+    exit 1
+  fi
+fi
+
+# no args generate the date
+echo "$date"
+
