@@ -3,28 +3,26 @@
 # Github Repos
 alias dot='cd $REPOS/dotfiles'
 alias repos='cd $REPOS'
+alias ml='cd $SECOND_BRAIN'
 
-alias c="clear"
-alias icloud="cd \$ICLOUD"
+alias c='clear'
 
 # ls
 alias ls='ls --color=auto'
-alias ll='ls -la'
 alias la='ls -lathr'
 alias lt='ls --human-readable --size -1 -S --classify'
 alias ll='ls -alF'
-alias la='ls -A'
 alias l='ls -CF'
 
 # finds all files recursively and sorts by last modification, ignore hidden files
-alias last='find . -type f -not -path "*/\.*" -exec ls -lrt {} +'
+alias last='find . -type f -not -path '*/\.*' -exec ls -lrt {} +'
 
 alias sv='sudoedit'
 alias t='tmux'
 alias e='exit'
 
 # Source tmux
-alias sourceTmux="tmux source $CONFIG/tmux/.tmux.conf"
+alias sourceTmux='tmux source $CONFIG/tmux/.tmux.conf'
 
 # git
 alias lg='lazygit'
