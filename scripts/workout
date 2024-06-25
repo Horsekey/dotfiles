@@ -9,20 +9,18 @@ new_workout() {
 	touch "$file"
 
 	cat <<EOF >"$file"
-
 # Workout
 
 # $today
 
-# Sets
+# Options
 
-1. blah
-2. blah
-3. blah
-4. blah
-5. blah
-6. blah
+1. 3 sets of 6 kettle bell excercises [ ]
+2. 30 minute minimum run [ ]
 
+# Daily
+
+1. Stretching [ ]
 
 EOF
 }
