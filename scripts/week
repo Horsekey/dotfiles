@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+## WIP need to re-format and figure out how I want to sort weekly notes (week of?)
+
+today=$(date +"%Y-%m-%d")
+tomorrow=$(date -d "tomorrow" +"%Y-%m-%d")
+yesterday=$(date -d "yesterday" +"%Y-%m-%d")
+file="$SECOND_BRAIN/periodic-notes/daily-notes/$today.md"
+workout="workout-$today"
+
+cd "$SECOND_BRAIN" || exit
+
+new_note() {
+	touch "$file"
+
+	cat <<EOF >"$file"
+# week $today of 
+
+[[$yesterday]] - [[$tomorrow]]
+
+# Goals
+
+# Intentions
+
+
+## Log
+EOF
+
+}
+
+if [ ! -f "$file" ]; then
+	echo "File does not exist, creating new daily note."
+	new_note
+fi
+
+nvim "$file"
