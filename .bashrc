@@ -34,7 +34,7 @@ export SECOND_BRAIN="$HOME/maggot-lair"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # go path
-export GOPATH=/opt/go
+export GOPATH=/home/horse/go
 
 #nvm home
 export NVM_DIR="$HOME/.nvm"
