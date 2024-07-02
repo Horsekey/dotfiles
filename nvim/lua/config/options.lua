@@ -17,7 +17,7 @@ opt.ignorecase = true
 -- vim.opt.undodir = vim.fn.expand('~/.nvim/undodir')
 
 -- scrolling
-opt.number = false
+opt.number = true
 opt.relativenumber = false
 opt.scrolloff = 8
 
