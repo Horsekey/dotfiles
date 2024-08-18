@@ -8,4 +8,4 @@
 - no feedback for the user about what exactly happened / what symlinks are made
 	- would be nice to add what aliases are new
 - doesn't grab my specific private notes repo
-
+- doesn't setup the path variable correctly
