@@ -22,7 +22,7 @@ export WSL_BROWSER='eval "/mnt/c/Program Files/Mozilla Firefox/firefox.exe"'
 export BROWSER="firefox"
 
 # directories
-export REPOS="$HOME/repos/github.com/horsekey/"
+export REPOS="$HOME/repos/github.com/horsekey"
 export GITUSER="horsekey"
 export DOTFILES="$REPOS/dotfiles"
 export ICLOUD="$HOME/icloud"
