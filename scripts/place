@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# Default HTML file and get the current date in MM.DD.YYYY format
+DEFAULT_HTML_FILE="$REPOS/nash/site/want-to-go.html"
+CURRENT_DATE=$(date +"%m.%d.%Y")
+
+# Usage message
+if [ "$#" -lt 2 ]; then
+    echo "Usage: $0 <place> <tag> [html_file] [date]"
+    exit 1
+fi
+
+# Input arguments
+PLACE=$1
+TAG=$2
+HTML_FILE=${3:-$DEFAULT_HTML_FILE}  # Default to "index.html" if not specified
+DATE=${4:-$CURRENT_DATE}           # Default to the current date if not specified
+
+# Verify the HTML file exists
+if [ ! -f "$HTML_FILE" ]; then
+    echo "Error: File '$HTML_FILE' does not exist."
+    exit 1
+fi
+
+# Prepare the new list item with the provided variables
+NEW_ITEM="                <li>\n                    <a href=\"/${PLACE}.html\"> ${PLACE} | ${DATE} <span class=\"tag\">${TAG}</span></a>\n                </li>"
+
+# Append the new item before the closing </ul> of places-list
+sed -i "/<ul class=\"places-list\">/a \\$NEW_ITEM" "$HTML_FILE"
+
+echo "New list item added successfully with place='${PLACE}', date='${DATE}', tag='${TAG}', and file='${HTML_FILE}'."
